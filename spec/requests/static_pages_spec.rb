@@ -2,7 +2,7 @@ require 'spec_helper'
 
 describe "Static pages" do 
 
-  let(:page_title) { "Biome Profiles | "}
+  let(:base_title) { "Biome Profiles"}
   
   describe "Home page" do
 
@@ -13,7 +13,7 @@ describe "Static pages" do
 
     it "should have the title 'Home'" do
       visit '/static_pages/home'
-      expect(page).to have_title(page_title + "Home")
+      expect(page).to have_title("#{base_title} | Home")
     end
   end 
 
@@ -26,7 +26,7 @@ describe "Static pages" do
 
     it "should have the title 'Help'" do
       visit '/static_pages/help'
-      expect(page).to have_title(page_title + "Help")
+      expect(page).to have_title("#{base_title} | Help")
     end
   end 
 
@@ -39,7 +39,7 @@ describe "Static pages" do
 
     it "should have the title 'About'" do
       visit '/static_pages/about'
-      expect(page).to have_title(page_title + "About")
+      expect(page).to have_title("#{base_title} | About")
     end
   end
 
@@ -53,7 +53,7 @@ describe "Static pages" do
 
     it "should have the title 'Contact'" do
       visit '/static_pages/contact'
-      expect(page).to have_title(page_title + "Contact")
+      expect(page).to have_title("#{base_title} | Contact")
     end
   end
 end
