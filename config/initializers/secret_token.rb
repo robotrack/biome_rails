@@ -9,4 +9,19 @@
 
 # Make sure your secret_key_base is kept private
 # if you're sharing your code publicly.
-Biome::Application.config.secret_key_base = 'cf6020046714686f803ce36710d75c76ef60b565ef7737b7c0a8137830b82dd698d93f4f9292f8a16629da90e57423499d35e6b930472c02e75cce4e54ed303d'
+require 'securerandom'
+
+def secure_token
+  token_file = Rails.root.join('.secret')
+  if File.exist?(token_file)
+    # Use the existing token.
+    File.read(token_file).chomp
+  else
+    # Generate a new token and store it in token_file.
+    token = SecureRandom.hex(64)
+    File.write(token_file, token)
+    token
+  end
+end
+
+Biome::Application.config.secret_key_base = secure_token
