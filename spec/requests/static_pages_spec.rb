@@ -28,7 +28,7 @@ describe "Static pages" do
     it { should have_selector('h1', text: heading) }
     it { should have_title(full_title(page_title)) }
   end
-  
+
   describe "Home page" do
     before { visit root_path }
     let(:heading) { 'Biome Profiles' }
