@@ -33,4 +33,7 @@ Biome::Application.configure do
 
   # Print deprecation notices to the stderr.
   config.active_support.deprecation = :stderr
+
+  # Speedup tests by lowering bcrypt's cost function
+  ActiveModel::SecurePassword.min_cost = true
 end
